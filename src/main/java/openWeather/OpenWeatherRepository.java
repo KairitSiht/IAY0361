@@ -10,6 +10,7 @@ import java.util.Date;
 import model.Coordinates;
 import model.DayWeather;
 import org.json.JSONArray;
+import org.json.JSONException;
 import utility.Constants;
 import utility.Constants.UNIT;
 
@@ -21,7 +22,7 @@ public class OpenWeatherRepository {
     public OpenWeatherRepository(){
     }
 
-    public OpenWeatherCurrentDTO getCurrentWeatherReport(OpenWeatherRequest request) throws IOException {
+    public OpenWeatherCurrentDTO getCurrentWeatherReport(OpenWeatherRequest request) throws Exception {
         String urlString = String.format("%sweather?q=%s,%s&appid=%s&unit=%s", API_URL, request.city, request.countryCode, API_KEY, request.units);
         String jsonString = HttpUtility.makeHttpGetRequest(urlString);
 
@@ -38,7 +39,7 @@ public class OpenWeatherRepository {
         return result;
     }
     
-    public OpenForecastWeatherDTO getThreeDayWeatherReport(OpenWeatherRequest request) throws IOException{
+    public OpenForecastWeatherDTO getThreeDayWeatherReport(OpenWeatherRequest request) throws IOException, JSONException{
         String urlString = String.format("%sforecast?q=%s,%s&appid=%s&unit=%s", API_URL, request.city, request.countryCode, API_KEY, request.units);
         String jsonString = HttpUtility.makeHttpGetRequest(urlString);
 
