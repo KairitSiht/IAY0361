@@ -2,7 +2,7 @@ package openWeather;
 
 import DTO.OpenForecastWeatherDTO;
 import DTO.OpenWeatherCurrentDTO;
-import org.json.JSONObject;
+import org.json.JSONObject;//maven
 import utility.HttpUtility;
 
 import java.io.IOException;
