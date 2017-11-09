@@ -23,8 +23,8 @@ import utility.Constants;
  */
 public class WeatherInfoFile {
 
-    public static final String input = ("../input.txt");
-    private static final String output = ("../otuput.txt");
+    public static final String input = ("C:/Users/Kairit/Desktop/Automatic-Testing/files/input.txt");
+    private static final String output = ("C:/Users/Kairit/Desktop/Automatic-Testing/files/output.txt");
     public static void main(String[] args) throws FileNotFoundException, IOException, WeatherReportNotFoundException {
         
         FileReader in = new FileReader(input);
