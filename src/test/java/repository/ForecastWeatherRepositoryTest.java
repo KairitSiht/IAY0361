@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ForecastWeatherRepositoryTest {
     private static String exampleCity;
-    private static Constants.COUNTRY_CODE exampleCountryCode;
+    private static String exampleCountryCode;
     private static Constants.UNIT exampleUnit;
     private static ForecastWeatherReport report;
     private static WeatherRequest request;
@@ -25,7 +25,7 @@ public class ForecastWeatherRepositoryTest {
     // since the report is only read and not altered, we can initiate one for all the tests.
     public static void setUpAllTests() {
         // [given]
-        request = new WeatherRequest("Tallinn", Constants.COUNTRY_CODE.EE, Constants.UNIT.metric);
+        request = new WeatherRequest("Tallinn", "EE", Constants.UNIT.metric);
         Weather weatherRepo = new WeatherRepository();
         try{
             // [when]

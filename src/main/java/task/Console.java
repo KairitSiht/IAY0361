@@ -5,6 +5,7 @@
  */
 package task;
 
+import java.time.Clock;
 import java.util.Scanner;
 import model.CurrentWeatherReport;
 import model.WeatherRequest;
@@ -16,17 +17,18 @@ import utility.Constants;
  * @author Kairit
  */
 public class Console {
-
-    /**
-     * @param args the command line arguments
-     */
-        public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception{
         
-        Scanner sc = new Scanner(System.in);
-        String cityName = sc.nextLine();
-        WeatherRequest wr = new WeatherRequest(cityName, Constants.COUNTRY_CODE.EE, Constants.UNIT.metric);
-        CurrentWeatherReport cw = new WeatherRepository().getCurrentWeather(wr);
-        System.out.println(cw.toString());
+    Scanner sc = new Scanner(System.in);
+    System.out.println("Sisesta linnanimi ja kood formaadis Linn,KOOD");
+    String userInput = sc.nextLine();
+    String[] nameAndCode = userInput.split(",");
+    String cityName = nameAndCode[0];
+    String countryCode = nameAndCode[1];
+    WeatherRequest wr = new WeatherRequest(cityName,countryCode, Constants.UNIT.metric);
+    CurrentWeatherReport cw = new WeatherRepository().getCurrentWeather(wr);
+    System.out.println(cw.toString());
+    sc.close();
 }
     
 }
